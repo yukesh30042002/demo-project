@@ -1,9 +1,59 @@
-<div>
-    <div>
-        <div>
-            <span class="rounded
-            ">YR</span>
-            <h3>Yukesh Ravi</h3>
+<body>
+    <div class="container" style="width: 800px;">
+        <div class="row align-items-center">
+                <!-- name -->
+                <div class="col-lg-3 col-name d-flex align-items-center">
+                    <span class="bg-secondary rounded-circle text-white d-flex justify-content-center align-items-center" 
+                          style="width: 30px; height: 30px; margin-right: 8px;">YR</span>
+                    <span>Yukesh Ravi</span>
+                </div>
+                <!-- year -->
+                <div class="col-lg-4 col-year d-flex justify-content-center align-items-center">
+                    <div (click)="previous()" class="me-2 cursor-pointer">
+                        <img style="width: 20px;" src="icons/left-arrow.png" alt="image not found!">
+                    </div>
+                    <div (click)="next()" class="me-2 cursor-pointer">
+                        <img style="width: 20px;" src="icons/right-arrow.png" alt="image not found!">
+                    </div>
+                    <span class="year-font">{{yearString}}</span>
+                </div>
+                <!-- calendar integration -->
+                <div class="col-lg-3 col-calendar d-flex align-items-center justify-content-center">
+                    <button class="calendar-font border-0 text-info" style="background-color: #f2f3f8;" type="button">Calendar Integrations</button>
+                    <img style="width: 30px; margin-left: 8px;" src="icons/google-calendar.png" alt="image not found!">
+                </div>
+                <!-- book leave -->
+                <div class="col-lg-2 col-leave text-end">
+                    <button class="border-0" style="background-color:#f2f3f8" mat-button (click)="openDialog()">
+                        <img style="width: 40px;" src="icons/plus-icon.png" alt="image not found!">
+                    </button>
+                </div>
+        </div>
+    
+        <!-- calendar table -->
+        <div class="row mt-4">
+            <!-- Loop through each month -->
+            <div *ngFor="let month of monthsArray" class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <table class="table-days day-font">
+                    <thead>
+                        <tr>
+                            <th colspan="7" class="text-center" >{{ month.month }}</th>
+                        </tr>
+                        <tr>
+                            <td *ngFor="let day of ['M', 'T', 'W', 'T', 'F', 'S', 'S']" class="text-center">{{ day }}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let week of month.days">
+                            <td *ngFor="let day of week; let i=index"
+                            [ngClass]="{'weekend' : day && (i===5 || i===6)}" 
+                            class="text-center">
+                                {{ day || '' }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+</body>

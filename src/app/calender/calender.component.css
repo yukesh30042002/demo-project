@@ -1,0 +1,64 @@
+body{
+    background-color: #f2f3f8;
+}
+.center{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.year-font{
+    font-size: small;
+}
+.calendar-font{
+    font-size: x-small;
+}
+.calendar-div{
+    margin-left: 100px;
+}
+.table-days td, .table-days th {
+    padding: 7px;
+    text-align: center;
+}
+.day-font{
+    font-size: x-small;
+}
+/* Weekend background color */
+.weekend {
+    background-color: #e4e3e4;
+}
+
+@media(min-width : 992px){}
+
+@media(max-width : 991px){
+    .col-name{
+        width: 150px;
+    }
+    .col-year{
+        width: 250px;
+    }
+    .col-calendar{
+        width: 200px;
+    }
+    .col-leave{
+        width: 50px;
+    }
+}
+
+@media(max-width : 767px){
+    .col-name{
+        width: 200px;
+    }
+    .col-year{
+        width: 300px;
+    }
+    .col-calendar{
+        width: 180px;
+    }
+    .col-leave{
+        width: 125px;
+    }
+}
+
+@media(max-width : 575px){
+
+}
